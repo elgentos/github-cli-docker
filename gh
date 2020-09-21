@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Follow symlinked to here
+t=$0;
+while [ -L $t ]; do
+    t=$(readlink $t);
+    if [ "." == "${t:0:1}" ]; then
+        t=`echo $(dirname $t)/$(readlink $t)`;
+    fi
+done
+
+md=`realpath $(dirname $t)`;
+i='github-cli'
+
+if [ -z "`docker images -q ${i}`" ]; then
+    echo "Docker image not found did you forget about the docs, see README";
+    exit 1;
+fi
+
+docker run --rm -it -v ${md}/config:/root/.config/gh -w /app -v ${PWD}:/app -v ${SSH_AUTH_SOCK}:/ssh-socket -e"${SSH_AUTH_SOCK}=/ssh-socket"  github-cli "$@";
+exit #?;
+
+
