@@ -6,7 +6,10 @@ This repository and all it's interactions were solely done via the docker-github
 ## Install
 Just run `make` to build the image `github-cli` and add `gh` it to your `~/bin`
 
-## Why
+## Documentation
+The official documentation for Github-CLI is at https://cli.github.com/manual/
+
+## Why???
 Because it wasn't in the default installation guides.
 
 ## Makefile
