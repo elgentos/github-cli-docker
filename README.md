@@ -1,12 +1,10 @@
-Docker Github CLI
----
+# Docker Github CLI
+Run your Github CLI via docker
 
-Run your Github CLI via docker.
-
+## Install
 Just run `make` to build the image `github-cli` and add `gh` it to your `~/bin`
 
-Makefile
-----
+## Makefile
 
 - `make docker` to build the image
 - `make undocker` to remove the image
