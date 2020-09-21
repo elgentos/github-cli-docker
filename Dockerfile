@@ -11,5 +11,5 @@ FROM golang:alpine
 RUN apk add --no-cache git
 COPY --from=build /app/gh-cli/bin/gh /usr/local/bin/gh
 
-ENTRYPOINT /usr/local/bin/gh
+ENTRYPOINT ["/usr/local/bin/gh"]
 
