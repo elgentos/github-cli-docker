@@ -8,7 +8,7 @@ RUN apk add --no-cache git make gcc libc-dev \
     && make;
 
 FROM golang:alpine
-RUN apk add --no-cache git openssh-client
+RUN apk add --no-cache git openssh-client vim nano
 COPY --from=build /app/gh-cli/bin/gh /usr/local/bin/gh
 
 ENTRYPOINT ["/usr/local/bin/gh"]
