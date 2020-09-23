@@ -17,7 +17,7 @@ if [ -z "`docker images -q ${i}`" ]; then
     exit 1;
 fi
 
-docker run --rm -it -v ${md}/config:/root/.config/gh -w /app -v ${PWD}:/app -v ${SSH_AUTH_SOCK}:/ssh-socket -e"${SSH_AUTH_SOCK}=/ssh-socket"  github-cli "$@";
+docker run --rm -it -v ${md}/config:/root/.config/gh -w /app -v ${PWD}:/app -v ${SSH_AUTH_SOCK}:/ssh-socket -e"SSH_AUTH_SOCK=/ssh-socket"  github-cli "$@";
 exit #?;
 
 
